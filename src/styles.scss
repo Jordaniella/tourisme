@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "fr-title";
+    src: url(../src/assets/fonts/fr-title.ttf);
+}
+@font-face {
+    font-family: "futurama";
+    src: url(../src/assets/fonts/fr-bold.ttf);
+}
+.title {
+    font-family: "fr-title";
+}
+body {
+    font-family: "futurama";
+    overflow-x: hidden;
+}
+.center-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.white {
+    color: #ffffff;
+}
+ul li {
+    list-style: none;
+}

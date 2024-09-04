@@ -1,0 +1,166 @@
+.main {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+.home {
+    position: relative;
+    &.active {
+        .header, .card {
+            transform: translateY(0);
+        }
+    }
+    .text-begin {
+        width: 100%;
+        height: 100vh;
+        background: #161414;
+        position: relative;
+        flex-direction: column;
+        gap: 30px;
+        p.white {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: transform 800ms 2s ease, opacity 800ms 2s ease;
+            position: relative;
+            letter-spacing: 2px;
+            z-index: 4;
+        }
+        h1.white {
+            position: relative;
+            transform: scale(.2) translateY(40px);
+            opacity: 0;
+            font-size: min(12vw,8rem);
+            transition: transform 500ms ease, opacity 500ms ease-out;
+            z-index: 3;
+            &::before { 
+                height: calc(100% + 20px);
+                background: #ffffff;
+                transform-origin: right;
+                transform: scaleX(1);
+                opacity: 0;
+                transition: transform 1s 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 200ms ease;
+            }
+            &.active {
+                transform:scale(.2) translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .bg-moove {
+            z-index: 2;
+            background: #161414;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 1s 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            &::before {
+                content: "";
+                position: absolute;
+                right: -98px;
+                bottom: 0;
+                background: #161414;
+                border-top-right-radius: 20px;
+                width: 100px;
+                height: 60px;
+                transform: translateY(100%);
+                transition: transform 1s 3.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+        }
+        &.active {
+            h1.white.active {
+                transform:scale(1) translateY(0);
+                &:before {
+                    transform: scaleX(0);
+                    opacity: 1;
+                }
+            }
+            p.white {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        .bg-moove {
+            transform: scaleX(.5);
+            &::before {
+                transform: translateY(0);
+            }
+        }
+        }
+        .img-bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s 1.5s ease-in, filter 800ms 1.6s ease;
+            object-fit: cover;
+            z-index: 1;
+            filter: blur(12px);
+            &.appear {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+    }
+    .header,.card {
+        transition: transform 1s 3.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 111;
+        transform: translateY(-100%);
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 3rem 1rem 3rem;
+            // gap: min(20vw,30rem);
+            ul{
+                width: 100%;
+                gap: 30px;
+            }
+        }
+    }
+    .card {
+        position: absolute;
+        z-index: 111;
+        bottom: 3rem;
+        right: 3rem;
+        width: 375px;
+        gap: 30px;
+        transform: translateY(200%);
+    }
+}
+.btn {
+    width: 150px;
+    text-align: center;
+}
+.mini-btn {
+    width: 100px;
+    padding: .5rem 1rem;
+    color: #ffffff;
+    border-radius: 5px;
+    background: #161414;
+    text-align: center;
+}
+.copyright {
+    position: fixed;
+    bottom: 3rem;
+    left: 3rem;
+    z-index: 111;
+}
+.card, .btn {
+    background: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 30px rgba($color: #000000, $alpha: 0.2);
+    border-radius: 5px;
+}
+h1.white::before, .text-begin .bg-moove {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

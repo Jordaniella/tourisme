@@ -1,0 +1,28 @@
+<main class="main">
+    <section class="container home" [ngClass]="{'active':appearTextBegin[1]}">
+        <header class="header ">
+            <nav class="nav">
+                <ul class="center-block">
+                    <li class="nav-item white">Home page</li>
+                    <li class="nav-item white">About</li>
+                    <li class="nav-item white">Pages</li>
+                    <li class="nav-item white">Contact</li>
+                </ul>
+                <div class="btn">GET STARTED</div>
+            </nav>
+        </header>
+        <div class="text-begin center-block"[ngClass]="{'active':appearTextBegin[1]}">
+            <img src="../../assets/images/fond.avif" alt="Tour Mada BG" class="img-bg" [ngClass]="{'appear': appearTextBegin[0]}">
+            <h1 class="white"[ngClass]="{'title': appearTextBegin[1],'active':appearTextBegin[0]}">Tour Mada</h1>
+            <p class="white">Madagascar, le lieu touristique à ne surtout pas rater</p>
+            <div class="bg-moove"></div>
+        </div>
+        <div class="card center-block">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque impedit nesciunt facere.</p>
+            <div class="mini-btn">ACCEPT</div>
+        </div>
+    </section>
+    <div class="copyright">
+        <p class="white">&copy; Coder par Jordaniella</p>
+    </div>
+</main>
